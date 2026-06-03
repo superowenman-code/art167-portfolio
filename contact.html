@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact | Owen Gregson</title>
+
+        <!-- NEW: Google Fonts link -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        
+    <!-- Site header -->
+    <header>
+        <h1>Contact</h1>
+
+        <!-- Primary navigation -->
+        <nav aria-label="Primary">
+            <ul>
+                <li><a class="nav-home" href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a class="nav-work" href="work.html">Work</a></li>
+                <li><a class="nav-contact" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main content -->
+   <main>
+
+    <!-- Contact form section -->
+    <section>
+        <h2>Send a Message</h2>
+        <p>If you would like to reach out about projects, collaborations, or general questions, use the form below.</p>
+        <p>Fields marked “(required)” must be filled out before submitting.</p>
+        
+     <form action="#" method="post">    
+
+        <!-- Full Name -->
+        <p>
+         <label for="fullname">Full Name (required)</label><br>
+         <input type="text" id="fullname" name="fullname" required>
+        </p>
+
+        <!-- Email -->
+        <p>
+            <label for="email">Email (required)</label><br>
+            <input type="email" id="email" name="email" required>
+            <br><small>Use a valid email format: name@example.com</small>
+        </p>
+
+        <!-- Phone -->
+         <p>
+            <label for="phone">Phone (optional)</label><br>
+            <input type="tel" id="phone" name="phone">
+            <br><small>Digits only (no spaces or symbols).</small>
+        </p>
+
+        <!-- Reason for Contact -->
+        <p>
+            <label for="reason">Reason for Contact (required)</label><br>
+            <select id="reason" name="reason" required>
+                <option value="">-- Select one --</option>
+                <option value="question">General Question</option>
+                <option value="project">Project Inquiry</option>
+                <option value="collab">Collaboration</option>
+                <option value="other">Other</option>
+            </select>
+        </p>
+
+        <!-- Preferred Contact Method -->
+        <fieldset>
+            <legend>Preferred Contact Method (required)</legend>
+
+            <p>
+                <input type="radio" id="pref-email" name="preferred_contact" value="email" required>
+                <label for="pref-email">Email</label>
+            </p>
+
+            <p>
+                <input type="radio" id="pref-phone" name="preferred_contact" value="phone">
+                <label for="pref-phone">Phone</label>
+            </p>
+        </fieldset>
+        
+        <!-- Newsletter -->
+        <p>
+            <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+            <label for="newsletter">Yes, send me updates (optional)</label>
+        </p>
+        
+        <!-- Message -->
+        <p>
+            <label for="message">Message (required)</label><br>
+            <textarea id="message" name="message" rows="6" cols="40" required></textarea>
+            <br><small>Please include any details that will help me understand your request.</small>
+        </p>
+
+        <!-- Buttons -->
+        <p>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </p>
+
+     </form>  
+    </section>
+   </main>
+
+    <!-- Site footer -->
+    <footer>
+        <p>&copy; 2026 Owen Gregson</p>
+    </footer>
+
+    </body>
+</html>
