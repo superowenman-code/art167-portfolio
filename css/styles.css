@@ -138,12 +138,13 @@ header nav a:focus {
 header nav a.nav-home,
 header nav a.nav-work,
 header nav a.nav-contact {
- background-image: url("../img/sprite.png");
- background-repeat: no-repeat;
- background-size: 192px 64px; /* 3 icons across */
- padding-left: 44px; /* make space for icon */
- background-position-y: 50%;
- text-indent: -9999px; /* fixes icons cutting off and hides text */
+  background-image: url("../img/sprite.png");
+  background-repeat: no-repeat;
+  background-size: 192px 64px;
+  padding-left: 44px;
+  background-position-y: 50%;
+  text-indent: 0;
+  white-space: nowrap;
 }
 
 header nav a.nav-home { background-position: 0 50%; }
