@@ -110,15 +110,18 @@ header nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  display: flex;
 }
 
 header nav li {
-  float: left;
+  margin: 0;
 }
 
 header nav a {
-  display: block;
+  position: relative; 
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 14px 20px;
   text-decoration: none;
   border-right: 1px solid #777;
@@ -134,22 +137,38 @@ header nav a:focus {
   outline-offset: 2px;
 }
 
-/* ===== Week 11: CSS sprites for nav icons ===== */
+/* ===== Week 11: CSS sprites for nav icons (Updated Week 16) ===== */
 header nav a.nav-home,
 header nav a.nav-work,
 header nav a.nav-contact {
+  padding-left: 68px;  
+  height: 60px;         
+}
+header nav a.nav-home::before,
+header nav a.nav-work::before,
+header nav a.nav-contact::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
   background-image: url("../img/sprite.png");
   background-repeat: no-repeat;
   background-size: 192px 64px;
-  padding-left: 44px;
-  background-position-y: 50%;
-  text-indent: 0;
-  white-space: nowrap;
+}
+header nav a.nav-home::before {
+    background-position: -6px center;
 }
 
-header nav a.nav-home { background-position: 0 50%; }
-header nav a.nav-work { background-position: -64px 50%; }
-header nav a.nav-contact { background-position: -128px 50%; }
+header nav a.nav-work::before {
+    background-position: -70px center;
+}
+
+header nav a.nav-contact::before {
+    background-position: -134px center;
+}
 
 /* ===== Week 7: Cascade demonstration ===== */
 .project p { line-height: 1.8; }
@@ -215,44 +234,6 @@ footer {
  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0,0,0,0.15));
 }
 
-/* ===== Week 12: Flexbox project grid ===== */
-/*
-.projects {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.projects .project {
-  flex: 1 1 260px;
-  min-width: 0px;
-}
-*/
-
-/* ===== Week 13: CSS Grid project layout (replaces flexbox) (updated Week 14)===== */
-/*
-.projects {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.projects .project {
-  min-width: 0;
-}
-*/
-
-/* ===== Week 13: Grid responsive behavior ===== */
-/*
-@media (max-width: 900px) {
-  .projects { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 600px) {
-  .projects { grid-template-columns: 1fr; }
-}
-*/
-
 /* ===== Week 14: Projects Grid (lecture pattern) ===== */
 .projects {
   display: grid;
@@ -270,41 +251,49 @@ footer {
   }
 }
 
-/* ===== Week 14: Project card polish (customized) ===== */
+/* ===== Week 14: Project card polish (customized)(updated week 16) ===== */
 .projects .project {
-  border-radius: 12px; /* slightly rounder corners */
-  box-shadow: 0 3px 12px rgba(0,0,0,0.12); /* slightly stronger shadow */
-  transition: transform 200ms ease, box-shadow 200ms ease; /* slightly slower */
+  border-radius: 12px; 
+  box-shadow: 0 3px 12px rgba(0,0,0,0.12); 
+  transition: transform 200ms ease, box-shadow 200ms ease; 
+}
+
+.projects .project img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  margin-bottom: 12px;
 }
 
 .projects .project:hover {
-  transform: translateY(-5px); /* slightly higher lift */
-  box-shadow: 0 7px 20px rgba(0,0,0,0.16); /* slightly stronger hover shadow */
+  transform: translateY(-5px); 
+  box-shadow: 0 7px 20px rgba(0,0,0,0.16); 
 }
 
 /* ===== Week 14: Nav interaction feedback (customized) ===== */
 header nav a {
-  transition: background-color 180ms ease; /* slightly slower */
+  transition: background-color 180ms ease; 
 }
 
 header nav a:hover {
-  background-color: rgba(0,0,0,0.08); /* slightly darker hover */
+  background-color: rgba(0,0,0,0.08); 
 }
 
 header nav a:focus {
   outline: 2px solid currentColor;
-  outline-offset: 3px; /* slightly larger offset */
+  outline-offset: 3px; 
 }
 
 /* ===== Week 14: Submit button polish (customized) ===== */
 button[type="submit"] {
-  border-radius: 10px; /* slightly rounder */
-  padding: 11px 16px; /* slightly larger */
+  border-radius: 10px; 
+  padding: 11px 16px; 
   transition: transform 180ms ease;
 }
 
 button[type="submit"]:hover {
-  transform: translateY(-3px); /* slightly higher lift */
+  transform: translateY(-3px); 
 }
 
 button[type="submit"]:focus {
@@ -314,12 +303,12 @@ button[type="submit"]:focus {
 
 /* ===== Week 14: Simple animation (customized) ===== */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(8px); } /* slightly larger movement */
+  from { opacity: 0; transform: translateY(8px); } 
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .hero-inner {
-  animation: fadeInUp 550ms ease-out; /* slightly longer duration */
+  animation: fadeInUp 550ms ease-out; 
 }
 
 /* ===== Week 14: Respect reduced motion preferences ===== */
@@ -330,15 +319,12 @@ button[type="submit"]:focus {
   }
 }
 
-/* ===== Week 12: Responsive breakpoints ===== */
-
-/* Medium screens (900px and below): slightly tighter spacing */
+/* ===== Week 12: Responsive breakpoints ===== */ 
 @media (max-width: 900px) {
  section { padding: 10px; }
  header nav a { padding: 10px 12px; }
 }
 
-/* Small screens (600px and below): stack nav + simplify grid */
 @media (max-width: 600px) {
  header nav li { float: none; }
  header nav a {
@@ -347,12 +333,8 @@ button[type="submit"]:focus {
    border-bottom: 1px solid #ccc;
  }
 
-  /* Helps fix an issue I had with small screens */
   main {
     max-width: 100%;
     padding: 0 12px;
   }
-
-  /* .projects { flex-direction: column; }
-  .projects .project { min-width: 0; } */
 }
